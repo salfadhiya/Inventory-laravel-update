@@ -13,10 +13,28 @@
   <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #343a40; /* Same as your background color */
+    }
+
+    .login-box {
+      width: 360px;
+      /* Adjust the width as needed */
+    }
+  </style>
+
 </head>
 <body class="hold-transition login-page" style=" background-color: #343a40;">
 <div class="login-box">
   <!-- /.login-logo -->
+  {{-- <center><img src="{{asset('assets/img/prod-1.jpg')}}" alt="error" style="width: 250; height: 250px;"></center> --}}
+
   <div class="card">
     <div class="card-header text-center">
       <a class="h1"><b>Fast</b>Direct</a>
@@ -65,6 +83,29 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // Handling SweetAlert2 flash messages
+    @if(session('success'))
+      Swal.fire({
+        icon: 'success',
+        title: 'BERHASIL!',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 4000
+      });
+    @elseif(session('error'))
+      Swal.fire({
+        icon: 'error',
+        title: 'GAGAL!',
+        text: '{{ session('error') }}',
+        showConfirmButton: false,
+        timer: 4000
+      });
+    @endif
+
+</script>
 
 </body>
 </html>
