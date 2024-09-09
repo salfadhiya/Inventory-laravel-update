@@ -10,6 +10,7 @@
                         <div class="card-header">
                                 <h1>Halaman Data Barang Keluar</h1>
                                 <a href="/barang_keluar/tambah" class="btn btn-outline-primary">Tambah</a>
+                                <a href="/barang_keluar/laporan" class="btn btn-outline-secondary" target="_blank">Cetak Laporan</a>
                         </div>
 
                         <div class="card-body">
@@ -27,6 +28,7 @@
                                             <th scope="col">Nama Customer</th>
                                             <th scope="col">Jumlah</th>
                                             <th scope="col">Aksi</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,8 +38,11 @@
                                             <td scope="row">{{$loop->iteration}}</td>
                                             <td>{{$barang_keluar->barang->nama_barang}}</td>
                                             <td>{{$barang_keluar->nama_customer}}</td>
-                                            <td>{{$barang_keluar->jumlah}}</td>
-                                            <td><a class="btn btn-outline-secondary" href="/barang_keluar/edit/{{$barang_keluar->id}}">Detail</a></td>
+                                            <td>{{ $barang_keluar->jumlah }}</td>
+                                            <td><a class="btn btn-outline-secondary" href="/barang_keluar/edit/{{$barang_keluar->id}}">Detail</a>
+                                            <a class="btn btn-outline-secondary" href="/barang_keluar/struk/{{$barang_keluar->id}}">Cetak Struk</a>
+                                            </td>
+
 
 
                                         </tr>

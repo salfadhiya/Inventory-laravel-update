@@ -25,6 +25,7 @@
                                             <th scope="col"> Number</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">Email</th>
+                                            <th>Role</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -35,6 +36,7 @@
                                             <td scope="row">{{$loop->iteration}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
+                                            <td>{{$user->role}}</td>
 
                                             <td>
                                                 <a class="btn btn-outline-warning" href="/user/edit/{{$user->id}}">Edit</a>

@@ -35,22 +35,37 @@ class BarangKeluarController extends Controller
             'nama_customer'=>'required',
             'jumlah'=>'required',
         ]);
-    
+
         $id = $request->id_barang;
         $barang = Barang::find($id);
 
         if ($barang->stok < $request->jumlah) {
             return redirect('/barang_keluar')->with('error','Stok barang tidak mencukupi !');
         }
-        
+
         $barang->decrement('stok', $request->jumlah);
         BarangKeluar::create([
-            'id_barang'=>$request->id_barang, 
+            'id_barang'=>$request->id_barang,
             'nama_customer'=>$request->nama_customer,
             'jumlah'=>$request->jumlah,
         ]);
-        return redirect("/barang_masuk")->with("success","Barang keluar berhasil ditambahkan");
+        return redirect("/barang_keluar")->with("success","Barang keluar berhasil ditambahkan");
         }
-    
+
+        public function laporan()
+        {
+            $barangKeluar = BarangKeluar::all();
+
+            return view("home.barang_keluar.laporan", compact("barangKeluar"));
+        }
+
+
+        public function struk($id)
+        {
+            $barangKeluar = BarangKeluar::find($id);
+
+            return view("home.barang_keluar.struk", compact("barangKeluar"));
+        }
+
 
 }

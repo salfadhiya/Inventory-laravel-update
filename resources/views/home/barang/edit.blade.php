@@ -57,8 +57,8 @@
                                     <label for="id_jenis" class="form-label">Id Jenis</label>
                                     <select class="form-control" name="id_jenis" id="id_jenis">
                                         @foreach ($jenis as $jenis)
-                                            <option value="{{ $jenis->id }}" {{$jenis->id == $jenis->id ? 'selected' : ''}}
-                                                {{ $jenis->id}}>
+                                            <option value="{{ $jenis->id }}" {{$jenis->id == $jenis->id ? 'selected' : ''}}>
+                                                {{ $jenis->id}} -
                                                 {{ $jenis->nama_jenis }}
                                             </option>
                                         @endforeach

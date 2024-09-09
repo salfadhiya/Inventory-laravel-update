@@ -31,7 +31,7 @@ class SupplierController extends Controller
     {
         $request->validate([
             'nama_supplier' => 'required|min:5',
-            'alamat' => 'required|numeric',
+            'alamat' => 'required',
             'no_telp' => 'required|numeric',
         ]);
 
@@ -56,10 +56,10 @@ class SupplierController extends Controller
     {
         $request->validate([
             'nama_supplier' => 'required|min:5',
-            'alamat' => 'required|numeric',
+            'alamat' => 'required',
             'no_telp' => 'required|numeric',
         ]);
-        
+
     $supplier = Supplier::find($id);
     $supplier->update($request->all());
     return redirect('/supplier')->with('success','Supplier berhasil ditambahkan');

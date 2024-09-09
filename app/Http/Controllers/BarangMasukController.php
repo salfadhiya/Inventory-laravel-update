@@ -49,11 +49,18 @@ class BarangMasukController extends Controller
     $barang->increment('stok', $request->jumlah);
 
     BarangMasuk::create([
-        'id_barang'=>$request->id_barang, 
+        'id_barang'=>$request->id_barang,
         'id_supplier'=>$request->id_supplier,
         'jumlah'=>$request->jumlah,
     ]);
-    return redirect("/barang_masuk")->with("success","");
+    return redirect("/barang_masuk")->with("success","Barang masuk berhasil ditambahkan");
     }
+
+    public function laporan()
+        {
+            $barangMasuk = BarangMasuk::all();
+
+            return view("home.barang_masuk.laporan", compact("barangMasuk"));
+        }
 
 }

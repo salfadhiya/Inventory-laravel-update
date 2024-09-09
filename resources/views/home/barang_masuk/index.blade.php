@@ -10,6 +10,7 @@
                         <div class="card-header">
                                 <h1>Halaman Data Barang Masuk</h1>
                                 <a href="/barang_masuk/tambah" class="btn btn-outline-primary">Tambah</a>
+                                <a href="/barang_masuk/laporan" class="btn btn-outline-secondary" target="_blank">Cetak Laporan</a>
                         </div>
 
                         <div class="card-body">
@@ -22,7 +23,7 @@
                                 >
                                     <thead>
                                         <tr>
-                                            <th scope="col"> Number</th>
+                                            <th scope="col">Number</th>
                                             <th scope="col">Id Barang</th>
                                             <th scope="col">Id Supplier</th>
                                             <th scope="col">Jumlah</th>

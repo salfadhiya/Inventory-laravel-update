@@ -5,6 +5,8 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\password;
+
 class UserController extends Controller
 {
     /**
@@ -29,8 +31,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|min:3',
-            'email' => 'required|numeric',
-            'password' => 'required|numeric',
+            'email' => 'required',
+            'password' => 'required',
         ]);
      User::create($request->all());
       return redirect('/user')->with('success','User berhasil ditambahkan');
@@ -45,6 +47,7 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
+       
     $user= User::find($id);
     $user->update($request->all());
     return redirect('/user')->with('success','User berhasil di edit');
