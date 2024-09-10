@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struk Barang Keluar</title>
+    <title>Struk Barang Masuk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -83,34 +83,34 @@
     <div class="receipt">
         <div class="receipt-header">
             <h1>FastDirect</h1>
-            <p>Barang Keluar</p>
+            <p>Barang Masuk</p>
         </div>
         <table class="table receipt-table">
             <tbody>
-                <!-- ID Barang Keluar and Customer Details -->
+                <!-- ID Barang Masuk and Customer Details -->
                 <tr>
-                    <td><label>ID Barang Keluar:</label></td>
-                    <td class="value">{{ $barangkeluar->id }}</td>
+                    <td><label>ID Barang Masuk:</label></td>
+                    <td class="value">{{ $barangmasuk->id }}</td>
                 </tr>
                 <tr>
-                    <td><label>Nama Customer:</label></td>
-                    <td class="value">{{ $barangkeluar->nama_customer }}</td>
+                    <td><label>Nama Supplier:</label></td>
+                    <td class="value">{{ $barangmasuk->supplier->nama_supplier }}</td>
                 </tr>
                 <tr>
                     <td><label>ID Barang:</label></td>
-                    <td class="value">{{ $barangkeluar->barang->id }}</td>
+                    <td class="value">{{ $barangmasuk->barang->id }}</td>
                 </tr>
                 <tr>
                     <td><label>Nama Barang:</label></td>
-                    <td class="value">{{ $barangkeluar->barang->nama_barang }}</td>
+                    <td class="value">{{ $barangmasuk->barang->nama_barang }}</td>
                 </tr>
                 <tr>
                     <td><label>Jumlah:</label></td>
-                    <td class="value">{{ $barangkeluar->jumlah }}</td>
+                    <td class="value">{{ $barangmasuk->jumlah }}</td>
                 </tr>
                 <tr>
                     <td><label>Harga per Item:</label></td>
-                    <td class="value">{{ 'Rp ' . number_format($barangkeluar->barang->harga_beli, 0, ',', '.') }}</td>
+                    <td class="value">{{ 'Rp ' . number_format($barangmasuk->barang->harga_beli, 0, ',', '.') }}</td>
                 </tr>
 
                 <!-- Separator Line -->
@@ -121,7 +121,7 @@
                 <!-- Total and Payment Date -->
                 <tr>
                     <td><label>Total:</label></td>
-                    <td class="value">{{ 'Rp ' . number_format($barangkeluar->jumlah * $barangkeluar->barang->harga_beli, 0, ',', '.') }}</td>
+                    <td class="value">{{ 'Rp ' . number_format($barangmasuk->jumlah * $barangmasuk->barang->harga_beli, 0, ',', '.') }}</td>
                 </tr>
                 <tr>
                     <td><label>Tanggal Pembayaran:</label></td>
@@ -132,7 +132,7 @@
                 <tr>
                     <td colspan="2" class="text-center">
                         <strong>Terima Kasih!</strong><br>
-                        <small>{{ $barangkeluar->nama_customer }}</small>
+                        <small>{{ $barangmasuk->nama_customer }}</small>
                     </td>
                 </tr>
             </tbody>

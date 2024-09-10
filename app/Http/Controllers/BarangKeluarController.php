@@ -60,11 +60,14 @@ class BarangKeluarController extends Controller
         }
 
 
-        public function struk($id)
+        public function struk(string $id)
         {
-            $barangKeluar = BarangKeluar::find($id);
-
-            return view("home.barang_keluar.struk", compact("barangKeluar"));
+            $barangkeluar = BarangKeluar::find($id);
+            return view('home.barang_keluar.struk', [
+                'barangkeluar' => $barangkeluar,
+                'jumlah_bayar' => $barangkeluar->jumlah * $barangkeluar->barang->harga,
+                'tgl_pembayaran' => $barangkeluar->created_at->format('d-m-Y'),
+            ]);
         }
 
 

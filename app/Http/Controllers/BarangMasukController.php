@@ -63,4 +63,18 @@ class BarangMasukController extends Controller
             return view("home.barang_masuk.laporan", compact("barangMasuk"));
         }
 
+        public function struk(string $id)
+        {
+            $barangmasuk = BarangMasuk::find($id);
+        return view('home.barang_masuk.struk', [
+            'barangmasuk' => $barangmasuk,
+            'jumlah_bayar' => $barangmasuk->jumlah * $barangmasuk->barang->harga,
+            'tgl_pembayaran' => $barangmasuk->created_at->format('d-m-Y'),
+            ]);
+        }
+
+
+
+
+
 }

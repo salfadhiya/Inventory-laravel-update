@@ -71,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/barang_masuk/edit/{id}', [BarangMasukController::class,'edit']);
 
         Route::get('/barang_masuk/laporan', [BarangMasukController::class, 'laporan' ]);
+        Route::get('/barang_masuk/struk/{id}', [BarangMasukController:: class,'struk']);
 
 
 

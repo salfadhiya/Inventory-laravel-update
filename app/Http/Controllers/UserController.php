@@ -29,12 +29,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-     User::create($request->all());
+        // $request->validate([
+        //     'name' => 'required|min:3',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        //     'role' => 'required',
+
+        // ]);
+     User::create([
+        "name"=> $request->name,
+        "email"=> $request->email,
+        "password"=> bcrypt($request->password),
+        "role"=> $request->role,
+     ]);
       return redirect('/user')->with('success','User berhasil ditambahkan');
     }
 
@@ -47,7 +54,7 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
-       
+
     $user= User::find($id);
     $user->update($request->all());
     return redirect('/user')->with('success','User berhasil di edit');

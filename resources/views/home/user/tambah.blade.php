@@ -72,6 +72,23 @@
                             </div>
                             @enderror
 
+                            <div class="mb-3">
+                                <label for="" class="form-label">Role</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="role"
+                                    id="role"
+                                    aria-describedby="helpId"
+                                    placeholder=""
+                                />
+                            </div>
+                            @error('role')
+                            <div class="alert alert-danger mt-2">
+                                {{$message}}
+                            </div>
+                            @enderror
+
                             <button class="btn btn-outline-success" type="submit">Kirim</button>
                         </form>
                         </div>

@@ -41,7 +41,9 @@
                                             <td>{{$barang_masuk->barang->nama_barang}}</td>
                                             <td>{{$barang_masuk->supplier->nama_supplier}}</td>
                                             <td>{{$barang_masuk->jumlah}}</td>
-                                            <td><a class="btn btn-outline-secondary" href="/barang_masuk/edit/{{$barang_masuk->id}}">Detail</a></td>
+                                            <td><a class="btn btn-outline-secondary" href="/barang_masuk/edit/{{$barang_masuk->id}}">Detail</a>
+                                                <a class="btn btn-outline-secondary" target="_blank" href="/barang_masuk/struk/{{$barang_masuk->id}}">Cetak Struk</a>
+                                            </td>
                                         </tr>
                                         @endforeach
 
